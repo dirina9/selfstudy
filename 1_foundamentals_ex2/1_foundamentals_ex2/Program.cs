@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Speech.Synthesis;
@@ -19,11 +20,12 @@ namespace _1_foundamentals_ex2
             /*book.NameChanged += OnNameChanged;
 
             book.Name = "Scott`s grade book";
-            book.Name = "grade book";   
-            book.Name = null;*/
+            book.Name = "grade book";*/
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
+            book.Name = null;
+            book.WriteGrades(Console.Out);
 
             GradeStatistics stats = book.ComputeStatistics();
             /*Console.WriteLine(book.Name);*/
