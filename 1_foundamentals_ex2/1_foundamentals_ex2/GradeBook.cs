@@ -10,7 +10,8 @@ namespace _1_foundamentals_ex2
     {
         public GradeBook()
         {
-            grades = new List<float>();   
+            _name = "Empty";
+            grades = new List<float>();
         }
 
         public GradeStatistics ComputeStatistics()
@@ -25,7 +26,7 @@ namespace _1_foundamentals_ex2
                 stats.LowestGrade = Math.Min(grade, stats.LowestGrade);
                 sum += grade;
             }
-            stats.AverageGrade = sum/grades.Count;
+            stats.AverageGrade = sum / grades.Count;
             return stats;
         }
 
@@ -34,8 +35,31 @@ namespace _1_foundamentals_ex2
             grades.Add(grade);
         }
 
-        public string Name;
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    if (_name != value)
+                    {
+                        NameChangedEventArgs args = new NameChangedEventArgs();
+                        args.ExistingName = _name;
+                        args.NewName = value;
+                        NameChanged(this, args);
+                    }
+                    _name = value;
+                }
+            }
+        }
 
+        public event NameChangedDelegate NameChanged;
+
+        private string _name;
         private List<float> grades;
 
     }
