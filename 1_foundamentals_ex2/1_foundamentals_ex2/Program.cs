@@ -12,19 +12,30 @@ namespace _1_foundamentals_ex2
     {
         static void Main(string[] args)
         {
+            IGradeTracker book = CreateGradeBook();
 
-            //SpeechSynthesizer synth = new SpeechSynthesizer();
-            //synth.Speak("hello! This is the program");
+            /*book.NameChanged += OnNameChanged;*/
+            try
+            {
+                Console.WriteLine("Enter a name");
+                book.Name = Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            GradeBook book = new GradeBook();
-            /*book.NameChanged += OnNameChanged;
-
-            book.Name = "Scott`s grade book";
+            /*book.Name = "Scott`s grade book";
             book.Name = "grade book";*/
+
+            foreach (var grade in book)
+            {
+                Console.WriteLine(grade);
+            }
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
-            book.Name = null;
+            //book.Name = null;
             book.WriteGrades(Console.Out);
 
             GradeStatistics stats = book.ComputeStatistics();
@@ -35,6 +46,15 @@ namespace _1_foundamentals_ex2
             WriteResult("Average", stats.AverageGrade);
             WriteResult("Lowest", stats.LowestGrade);
             WriteResult(stats.Description, stats.LetterGrade);
+        }
+
+        private static IGradeTracker CreateGradeBook()
+        {
+
+            //SpeechSynthesizer synth = new SpeechSynthesizer();
+            //synth.Speak("hello! This is the program");
+
+            return new ThrowAwayGradeBook();
         }
 
         /* static void OnNameChanged(object sender, NameChangedEventArgs args)
