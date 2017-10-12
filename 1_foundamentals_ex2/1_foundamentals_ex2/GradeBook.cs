@@ -13,7 +13,7 @@ namespace _1_foundamentals_ex2
         public GradeBook()
         {
             _name = "Empty";
-            grades = new List<float>();
+            grades = new List<float> { 91 , 89.5f, 75};
         }
 
         public override GradeStatistics ComputeStatistics()

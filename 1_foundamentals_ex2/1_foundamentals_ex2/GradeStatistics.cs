@@ -15,6 +15,24 @@ namespace _1_foundamentals_ex2
 
         }
 
+        public void ShowResults()
+        {
+            WriteResult("Highest", HighestGrade);
+            WriteResult("Average", AverageGrade);
+            WriteResult("Lowest", LowestGrade);
+            WriteResult(Description, LetterGrade);
+        }
+       
+
+        static void WriteResult(string description, string result)
+        {
+            Console.WriteLine("{0}:{1}", description, result);
+        }
+
+        static void WriteResult(string description, float result)
+        {
+            Console.WriteLine("{0}:{1:F2}", description, result);
+        }
         public string Description
         {
             get
