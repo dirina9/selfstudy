@@ -9,21 +9,18 @@ namespace DoFactory.GangOfFour.Abstract.RealWorld
     /// </summary>
     class MainApp
     {
-        /// <summary>
-        /// Entry point into console application.
-        /// </summary>
         public static void Main()
         {
             // Create and run the African animal world
             IContinent continent = new Africa();
-            IHerbivore heribove = continent.CreateHerbivore();
+            IHerbivore herbivore = continent.CreateHerbivore();
             ICarnivore carnivore = continent.CreateCarnivore();
-            carnivore.Eat(heribove);
+            carnivore.Eat(herbivore);
 
             continent = new America();
-            heribove = continent.CreateHerbivore();
+            herbivore = continent.CreateHerbivore();
             carnivore = continent.CreateCarnivore();
-            carnivore.Eat(heribove);
+            carnivore.Eat(herbivore);
 
         }
     }

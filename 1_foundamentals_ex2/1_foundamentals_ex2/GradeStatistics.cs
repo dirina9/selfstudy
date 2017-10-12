@@ -21,6 +21,7 @@ namespace _1_foundamentals_ex2
             WriteResult("Average", AverageGrade);
             WriteResult("Lowest", LowestGrade);
             WriteResult(Description, LetterGrade);
+
         }
        
 
@@ -33,6 +34,7 @@ namespace _1_foundamentals_ex2
         {
             Console.WriteLine("{0}:{1:F2}", description, result);
         }
+
         public string Description
         {
             get

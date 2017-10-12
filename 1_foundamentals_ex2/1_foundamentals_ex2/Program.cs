@@ -1,11 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Speech.Synthesis;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace _1_foundamentals_ex2
 {
     class Program
@@ -13,20 +6,23 @@ namespace _1_foundamentals_ex2
         static void Main(string[] args)
         {
             IGradeTracker book = CreateGradeBook();
+            EnterBookName();
+            book.Name = Console.ReadLine();
+            book.WriteGrades(Console.Out);
+            GradeStatistics stats = book.ComputeStatistics();
+            stats.ShowResults();
+        }
+
+       static void EnterBookName()
+        {
             try
             {
                 Console.WriteLine("Enter a name");
-                book.Name = Console.ReadLine();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
-            book.WriteGrades(Console.Out);
-
-            GradeStatistics stats = book.ComputeStatistics();
-            stats.ShowResults();
         }
 
 
@@ -35,6 +31,6 @@ namespace _1_foundamentals_ex2
             return new ThrowAwayGradeBook();
         }
 
-
     }
+
 }

@@ -34,9 +34,9 @@ namespace _1_foundamentals_ex2
 
         public override void WriteGrades(TextWriter destination)
         {
-            for (int i = 0; i < grades.Count; i++)
+            foreach (var grade in grades)
             {
-                destination.WriteLine(grades[i]);
+                destination.WriteLine(grade);
             }
         }
 
