@@ -1,6 +1,9 @@
-﻿namespace example
+﻿using Animals;
+using Interfaces;
+
+namespace Continents
 {
-    public class Africa:IContinent
+    public class Africa : IContinent
     {
         public ICarnivore CreateCarnivore()
         {
@@ -10,6 +13,11 @@
         public IHerbivore CreateHerbivore()
         {
             return new Wildebeest();
+        }
+
+        public SmallLion createSmallLion()
+        {
+            return new SmallLion();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace example
+﻿namespace Interfaces
 {
     public interface IContinent
     {

@@ -1,6 +1,9 @@
-﻿namespace example
+﻿using Animals;
+using Interfaces;
+
+namespace Continents
 {
-    public class America:IContinent
+    public class America : IContinent
     {
         public ICarnivore CreateCarnivore()
         {

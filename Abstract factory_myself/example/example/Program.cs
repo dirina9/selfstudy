@@ -1,5 +1,5 @@
-﻿using System;
-using example;
+﻿using Continents;
+using Interfaces;
 
 namespace DoFactory.GangOfFour.Abstract.RealWorld
 {
@@ -17,11 +17,16 @@ namespace DoFactory.GangOfFour.Abstract.RealWorld
             ICarnivore carnivore = continent.CreateCarnivore();
             carnivore.Eat(herbivore);
 
+            Africa africa = new Africa();
+            var smallLion = africa.createSmallLion();
+            smallLion.Eat(herbivore);
+
             continent = new America();
             herbivore = continent.CreateHerbivore();
             carnivore = continent.CreateCarnivore();
             carnivore.Eat(herbivore);
 
+            
         }
     }
 }

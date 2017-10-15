@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Interfaces;
+using System;
 
-namespace example
+namespace Animals
 {
-    class Wolf:ICarnivore
+    public class Wolf : ICarnivore
     {
         public void Eat(IHerbivore herbivore)
         {
