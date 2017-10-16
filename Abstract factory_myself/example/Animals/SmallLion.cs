@@ -8,7 +8,12 @@ namespace Animals
     {
         override public void Eat(IHerbivore herbivore)
         {
-            Console.WriteLine(this.GetType().Name + " play with " + herbivore.GetType().Name);
+            Console.WriteLine(this.GetName() + " play with " + herbivore.GetName());
+        }
+
+        public override string GetName()
+        {
+            return "small" + base.GetName();
         }
     }
 }

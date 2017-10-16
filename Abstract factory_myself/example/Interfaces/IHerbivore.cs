@@ -1,6 +1,6 @@
 ﻿namespace Interfaces
 {
-    public interface IHerbivore
+    public interface IHerbivore : IAnimal
     {
     }
 }

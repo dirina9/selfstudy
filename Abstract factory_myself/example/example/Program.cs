@@ -1,4 +1,6 @@
-﻿using Continents;
+﻿using Animals;
+using Continents;
+using example;
 using Interfaces;
 
 namespace DoFactory.GangOfFour.Abstract.RealWorld
@@ -26,7 +28,9 @@ namespace DoFactory.GangOfFour.Abstract.RealWorld
             carnivore = continent.CreateCarnivore();
             carnivore.Eat(herbivore);
 
-            
+            Slack.FoodOrders foodOrders = new Slack.FoodOrders("foodOrders","meat1");
+            foodOrders.Attach(herbivore);
+            foodOrders.Food = "meat2";
         }
     }
 }

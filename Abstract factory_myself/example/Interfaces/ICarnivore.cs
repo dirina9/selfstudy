@@ -1,7 +1,7 @@
 ﻿namespace Interfaces
 {
-    public interface ICarnivore
+    public interface ICarnivore : IAnimal
     {
-        void Eat(IHerbivore herbivore);
+       void Eat(IHerbivore herbivore);
     }
 }
