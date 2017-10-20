@@ -7,17 +7,11 @@ namespace Pluralsight.CSharpEquality.FoodEquals
     {
         static void Main(string[] args)
         {
-            Food banana = new Food("banana");
-            Food banana2 = new Food("banana");
-            Food chocolate = new Food("chocolate");
-            /*string banana = "banana";
-            string banana2 = String.Copy(banana);*/
+            Food apple = new Food("apple", FoodGroup.Fruit);
+            CookedFood stewedApple = new CookedFood("stewed", "apple", FoodGroup.Fruit);
 
-            Console.WriteLine(banana.Equals(chocolate));
-            /*Console.WriteLine(banana);
-            Console.WriteLine(banana2);*/
-            Console.WriteLine(ReferenceEquals(banana,banana2));
-            //Console.WriteLine(banana.Equals(banana2));
+            Console.WriteLine(apple);
+            Console.WriteLine(stewedApple);
 
         }
     }
