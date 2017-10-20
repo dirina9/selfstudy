@@ -10,9 +10,9 @@ namespace Observer_example
         {
             this.name = new_name;
         }
-        public void Update(Parking parking)
+        public void Update(int places)
         {
-            Console.WriteLine("Notified {0} change to {1}", name, parking.Places);
+            Console.WriteLine("Notified {0} change to {1}", name, places);
         }
     }
 }

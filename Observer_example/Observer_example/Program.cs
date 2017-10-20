@@ -12,7 +12,8 @@ namespace Observer_example
         {
             Parking parking = new Parking(50);
             parking.Attach(new Screen("screen1"));
-            Screen screen = new Screen("screen2");
+            IScreens screen = new Screen("screen2");
+
             parking.Attach(screen);
             parking.CarArrive();
             parking.CarArrive();

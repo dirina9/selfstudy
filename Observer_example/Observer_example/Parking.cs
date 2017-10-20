@@ -9,31 +9,36 @@ namespace Observer_example
 {
     class Parking
     {
-        public int Places;
-        private List<IScreens> Screens = new List<IScreens>();
+        private int places { get; set; }
+        private readonly List<IScreens> screens = new List<IScreens>();
+
+        public int Places
+        {
+            get { return this.places; }
+        }
 
         public Parking(int places)
         {
-            this.Places = places;
+            this.places = places;
         }
 
         public void Attach(IScreens screen)
         {
-            Screens.Add(screen);
+            screens.Add(screen);
         }
 
         public void Detach(IScreens screen)
         {
-            Screens.Remove(screen);
+            screens.Remove(screen);
         }
 
-        public void Notify()
+        private void Notify()
         {
-            foreach (var screen in Screens)
+            foreach (var screen in screens)
             {
-                if (Places > 0)
+                if (places > 0)
                 {
-                    screen.Update(this);
+                    screen.Update(places);
                 }
                 else
                 {
@@ -45,12 +50,12 @@ namespace Observer_example
 
         public void CarArrive()
         {
-            Places--;
+            places--;
             Notify();
         }
         public void CarLeft()
         {
-            Places++;
+            places++;
             Notify();
         }
     }

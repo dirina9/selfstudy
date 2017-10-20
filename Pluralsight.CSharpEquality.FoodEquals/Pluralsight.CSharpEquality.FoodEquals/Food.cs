@@ -10,7 +10,7 @@
 
         public static bool operator !=(Food x, Food y)
         {
-            return !object.Equals(x, y);
+            return object.Equals(x, y);
         }
         
         public override bool Equals(object obj)

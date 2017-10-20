@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Observer_example
+﻿namespace Observer_example
 {
     interface IScreens
     {
-        void Update(Parking parking);
+        void Update(int places);
     }
 }
