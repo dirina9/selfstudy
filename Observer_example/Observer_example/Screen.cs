@@ -12,7 +12,7 @@ namespace Observer_example
         }
         public void Update(int places)
         {
-            Console.WriteLine("Notified {0} change to {1}", name, places);
+            Console.WriteLine("Notified {0}: count of places was changed to {1}", name, places);
         }
     }
 }

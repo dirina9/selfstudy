@@ -11,6 +11,8 @@ namespace Observer_example
         static void Main(string[] args)
         {
             Parking parking = new Parking(50);
+            parking.OnCarArrive += parking.Notify;
+            parking.OnCarLeft += parking.Notify;
             parking.Attach(new Screen("screen1"));
             IScreens screen = new Screen("screen2");
 
@@ -21,7 +23,6 @@ namespace Observer_example
             parking.CarArrive();
             parking.CarArrive();
             parking.Detach(screen);
-
             parking.CarArrive();
             parking.CarArrive();
 

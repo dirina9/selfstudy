@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Observer_example
 {
@@ -11,6 +7,9 @@ namespace Observer_example
     {
         private int places { get; set; }
         private readonly List<IScreens> screens = new List<IScreens>();
+        public delegate void MethodContainer();
+        public event MethodContainer OnCarArrive;
+        public event MethodContainer OnCarLeft;
 
         public int Places
         {
@@ -32,18 +31,18 @@ namespace Observer_example
             screens.Remove(screen);
         }
 
-        private void Notify()
+        public void Notify()
         {
             foreach (var screen in screens)
             {
                 if (places > 0)
                 {
-                    screen.Update(places);
+                    screen.Update(places); 
                 }
                 else
                 {
-                    Console.WriteLine("There are no free places"); 
-                    
+                    Console.WriteLine("There are no free places");
+
                 }
             }
         }
@@ -51,12 +50,13 @@ namespace Observer_example
         public void CarArrive()
         {
             places--;
-            Notify();
+            if (OnCarArrive != null) OnCarArrive();
         }
+
         public void CarLeft()
         {
             places++;
-            Notify();
+            if (OnCarLeft != null) OnCarLeft();
         }
     }
 }
