@@ -3,11 +3,12 @@
     public enum FoodGroup { Meat, Fruit, Vegetables, Sweets }
     public class Food
     {
+        // Перегружаем логический оператор ==
         public static bool operator ==(Food x, Food y)
         {
             return object.Equals(x, y);
         }
-
+        // Теперь обязательно нужно перегрузить логический оператор !=
         public static bool operator !=(Food x, Food y)
         {
             return object.Equals(x, y);
@@ -25,6 +26,10 @@
             return this._name == rhs._name && this._group == rhs._group;
         }
 
+
+        // типы-значения struct. Для них метод Equals по умолчанию сравнивает значения всех полей, и если они равны, заключает, что и структуры равны, одинаковы. 
+        //Метод GetHashCode по умолчанию для равных структур возвращает одинаковый хеш.
+        //Для классов реализация Equals по умолчанию не имеет права предполагать, что одинаковые значения полей автоматически означают равенство, каждый экземпляр класса считается уникальным.
         public override int GetHashCode()
         {
             return this._name.GetHashCode() ^ this._group.GetHashCode();
