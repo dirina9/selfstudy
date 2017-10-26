@@ -22,16 +22,10 @@ namespace Pluralsight.CSharpEquality.FoodEquals
             DisplayWhetherEqual(apple,apple2);
             DisplayWhetherEqual(apple,apple);
 
+
+            //c учетом языка и региональных параметров, но без учета регистра
             bool areEqual = string.Equals("Apple", "Pineapple", StringComparison.CurrentCultureIgnoreCase);
             Console.WriteLine(areEqual);
-
-            //To do an equals for which there is no Equals() method:
-            int cmpResult = string.Compare(
-                "Apple", "Pineapple", CultureInfo.GetCultureInfo("fr-FR"), CompareOptions.IgnoreSymbols);
-            areEqual = (cmpResult == 0);
-
-            //case-sensitive ordinal:
-            areEqual = ("Apple" == "Pineapple");
 
             string apple1 = "Apple";
             string apple3 = "Ap" + "ple";
@@ -57,10 +51,10 @@ namespace Pluralsight.CSharpEquality.FoodEquals
         static void DisplayWhetherEqual(Food food1, Food food2)
         {
             if(food1 == food2)
-                Console.WriteLine(String.Format("{0,12}=={1}", food1,food2));
+                Console.WriteLine("{0,12}=={1}", food1,food2);
             else
             {
-                Console.WriteLine( String.Format("{0,12} != {1}", food1,food2));
+                Console.WriteLine("{0,12} != {1}", food1,food2);
             }
         }
     }
