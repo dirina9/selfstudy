@@ -6,6 +6,7 @@ namespace Observer_example
     {
         private string name;
 
+
         public Screen(string new_name)
         {
             this.name = new_name;
@@ -14,5 +15,11 @@ namespace Observer_example
         {
             Console.WriteLine("Notified {0}: count of places was changed to {1}", name, places);
         }
+
+        public void Attention(Parking.CarCrashEventArgs carCrashEventArgs)
+        {
+            Console.WriteLine("Owner of car" + carCrashEventArgs.Model + "with the number" + carCrashEventArgs.Number + ". Go to contact center!");
+        }
+
     }
 }

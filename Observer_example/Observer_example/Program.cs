@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace Observer_example
             parking.OnCarLeft += parking.Notify;
             parking.Attach(new Screen("screen1"));
             IScreens screen = new Screen("screen2");
+            parking.OnCarCrash += screen.Attention;
 
             parking.Attach(screen);
             parking.CarArrive();
@@ -25,6 +27,7 @@ namespace Observer_example
             parking.Detach(screen);
             parking.CarArrive();
             parking.CarArrive();
+            parking.CarCrash();
 
         }
     }

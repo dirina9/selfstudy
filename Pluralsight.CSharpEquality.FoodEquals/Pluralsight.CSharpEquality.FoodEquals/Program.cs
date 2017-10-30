@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 
@@ -8,6 +9,10 @@ namespace Pluralsight.CSharpEquality.FoodEquals
     {
         static void Main(string[] args)
         {
+
+            Dictionary<Food, Food> dict = new Dictionary<Food, Food>();
+
+            
             Food apple = new Food("apple", FoodGroup.Fruit);
             CookedFood stewedApple = new CookedFood("stewed", "apple", FoodGroup.Fruit);
             CookedFood bakedApple = new CookedFood("baked", "apple", FoodGroup.Fruit);

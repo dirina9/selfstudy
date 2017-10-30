@@ -1,6 +1,10 @@
-﻿namespace Pluralsight.CSharpEquality.FoodEquals
+﻿using System.Collections.Generic;
+
+namespace Pluralsight.CSharpEquality.FoodEquals
 {
+    using System;
     public enum FoodGroup { Meat, Fruit, Vegetables, Sweets }
+
     public class Food
     {
 
@@ -23,7 +27,8 @@
             if (obj.GetType()!=this.GetType())
                 return false;
             Food rhs = obj as Food;
-            return this._name == rhs._name && this._group == rhs._group;
+            return String.Compare(_name, rhs._name, StringComparison.CurrentCultureIgnoreCase) != 0;
+
         }
 
 
