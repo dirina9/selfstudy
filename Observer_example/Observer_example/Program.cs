@@ -14,20 +14,23 @@ namespace Observer_example
             Parking parking = new Parking(50);
             parking.OnCarArrive += parking.Notify;
             parking.OnCarLeft += parking.Notify;
-            parking.Attach(new Screen("screen1"));
-            IScreens screen = new Screen("screen2");
-            parking.OnCarCrash += screen.Attention;
+            IScreens screen1 = new Screen("screen1");
+            IScreens screen2 = new Screen("screen2");
+            parking.OnCarCrash += screen1.Attention;
+            parking.OnCarCrash += screen2.Attention;
+            parking.Attach(screen1);
+            parking.Attach(screen2);
 
-            parking.Attach(screen);
             parking.CarArrive();
             parking.CarArrive();
             parking.CarLeft();
             parking.CarArrive();
+            parking.CarCrash("bmw", "G777GG");
             parking.CarArrive();
-            parking.Detach(screen);
+            parking.Detach(screen1);
             parking.CarArrive();
             parking.CarArrive();
-            parking.CarCrash();
+            parking.CarCrash("audi", "F888FF");
 
         }
     }

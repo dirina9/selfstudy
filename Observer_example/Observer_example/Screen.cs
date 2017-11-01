@@ -16,9 +16,9 @@ namespace Observer_example
             Console.WriteLine("Notified {0}: count of places was changed to {1}", name, places);
         }
 
-        public void Attention(Parking.CarCrashEventArgs carCrashEventArgs)
+        public void Attention(string m, string n)
         {
-            Console.WriteLine("Owner of car" + carCrashEventArgs.Model + "with the number" + carCrashEventArgs.Number + ". Go to contact center!");
+            Console.WriteLine("Owner of car " + m + " with the number " + n + ". Please, go to contact center!");
         }
 
     }
