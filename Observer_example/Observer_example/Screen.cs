@@ -2,7 +2,7 @@
 
 namespace Observer_example
 {
-    class Screen : IScreens
+    class Screen : IScreen
     {
         private string name;
 
@@ -16,10 +16,9 @@ namespace Observer_example
             Console.WriteLine("Notified {0}: count of places was changed to {1}", name, places);
         }
 
-        public void Attention(string m, string n)
+        public void OnCarCrashHandler(string model, string number)
         {
-            Console.WriteLine("Owner of car " + m + " with the number " + n + ". Please, go to contact center!");
+            Console.WriteLine("SCREEN:{0} The owner of {1} № {2}. Please, go to contact center!", this.name, model, number);
         }
-
     }
 }

@@ -12,14 +12,9 @@ namespace Observer_example
         static void Main(string[] args)
         {
             Parking parking = new Parking(50);
-            parking.OnCarArrive += parking.Notify;
-            parking.OnCarLeft += parking.Notify;
-            IScreens screen1 = new Screen("screen1");
-            IScreens screen2 = new Screen("screen2");
-            parking.OnCarCrash += screen1.Attention;
-            parking.OnCarCrash += screen2.Attention;
-            parking.Attach(screen1);
-            parking.Attach(screen2);
+            parking.Attach("screen1");
+            parking.Attach("screen2");
+            parking.AttachBig("screen BIG1");
 
             parking.CarArrive();
             parking.CarArrive();
@@ -27,11 +22,12 @@ namespace Observer_example
             parking.CarArrive();
             parking.CarCrash("bmw", "G777GG");
             parking.CarArrive();
-            parking.Detach(screen1);
+            parking.CarCrash("lada", "G222MM");
             parking.CarArrive();
             parking.CarArrive();
             parking.CarCrash("audi", "F888FF");
 
+            Console.ReadKey();
         }
     }
 }

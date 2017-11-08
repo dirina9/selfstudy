@@ -6,11 +6,8 @@ namespace Observer_example
     class Parking
     {
         private int places { get; set; }
-        private readonly List<IScreens> screens = new List<IScreens>();
-        public delegate void MethodContainer();
+        private readonly List<IScreen> screens = new List<IScreen>();
         public delegate void MethodCrash(string m, string n);
-        public event MethodContainer OnCarArrive;
-        public event MethodContainer OnCarLeft;
         public event MethodCrash OnCarCrash;
 
         public int Places
@@ -24,56 +21,37 @@ namespace Observer_example
             this.places = places;
         }
 
-        public void Attach(IScreens screen)
+        public void AttachBig(string screenName)
         {
+            IScreen screen = new LargeScreen(screenName);
+            this.Subscribe(screen);
+        }
+
+        public void Attach(string screenName)
+        {
+            IScreen screen = new Screen(screenName);
+            this.Subscribe(screen);
+        }
+
+        private void Subscribe(IScreen screen)
+        {
+            this.OnCarCrash += screen.OnCarCrashHandler;
             screens.Add(screen);
-        }
-
-        public void Detach(IScreens screen)
-        {
-            screens.Remove(screen);
-        }
-
-        public void Notify()
-        {
-            foreach (var screen in screens)
-            {
-                if (places > 0)
-                {
-                    screen.Update(places); 
-                }
-                else
-                {
-                    Console.WriteLine("There are no free places");
-
-                }
-            }
         }
 
         public void CarArrive()
         {
             places--;
-            if (OnCarArrive != null) OnCarArrive();
         }
 
         public void CarLeft()
         {
             places++;
-            if (OnCarLeft != null) OnCarLeft();
         }
 
         public void CarCrash(string m, string n)
         {
             if (OnCarCrash != null) OnCarCrash(m,n);
-        }
-        
-        public class CarCrashEventArgs : EventArgs
-        {
-            public CarCrashEventArgs(string m, string n)
-            {
-                string model = m;
-                string numger = n;
-            }
         }
 
     }

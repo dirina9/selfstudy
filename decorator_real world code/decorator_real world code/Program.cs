@@ -110,7 +110,7 @@ namespace DoFactory.GangOfFour.Decorator.RealWorld
     /// <summary>
     /// The 'Decorator' abstract class
     /// </summary>
-    abstract class Decorator : LibraryItem
+    abstract class Decorator
     {
         protected LibraryItem libraryItem;
 
@@ -120,7 +120,7 @@ namespace DoFactory.GangOfFour.Decorator.RealWorld
             this.libraryItem = libraryItem;
         }
 
-        public override void Display()
+        public void Display()
         {
             libraryItem.Display();
         }
@@ -151,7 +151,7 @@ namespace DoFactory.GangOfFour.Decorator.RealWorld
             libraryItem.NumCopies++;
         }
 
-        public override void Display()
+        public void Display()
         {
             base.Display();
 
