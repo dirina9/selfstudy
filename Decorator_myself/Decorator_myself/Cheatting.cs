@@ -8,7 +8,7 @@ namespace Decorator_myself
         {
         }
 
-        public void PassExam()
+        public new void PassExam()
         {
             Console.WriteLine("!!! Cheat");
             base.PassExam();

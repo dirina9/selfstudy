@@ -2,14 +2,14 @@
 {
     abstract public class Decorator
     {
-        protected Student student;
+        private Student student;
 
-        public Decorator(Student concreteStudent)
+        protected Decorator(Student concreteStudent)
         {
             this.student = concreteStudent;
         }
 
-        public void PassExam()
+        protected void PassExam()
         {
             student.PassExam();
         }
