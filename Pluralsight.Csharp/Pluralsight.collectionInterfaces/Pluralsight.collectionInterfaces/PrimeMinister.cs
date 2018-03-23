@@ -7,8 +7,8 @@
 
         public PrimeMinister(string name, int year)
         {
-            this.Name = name;
-            this.YearElected = year;
+            Name = name;
+            YearElected = year;
         }
 
         public override string ToString()

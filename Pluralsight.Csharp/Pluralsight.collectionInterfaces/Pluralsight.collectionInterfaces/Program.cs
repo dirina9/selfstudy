@@ -7,23 +7,27 @@ namespace Pluralsight.collectionInterfaces
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            Console.WriteLine("Linked List");
             var linkedList = new LinkedLists();
             linkedList.LinkedListsExample();
 
             Console.WriteLine("");
 
+            Console.WriteLine("Stack");
             var stack = new Stack();
             stack.StackExample();
 
             Console.WriteLine("");
 
+            Console.WriteLine("Queue"); 
             var queue = new Queue();
             queue.QueueExample();
 
             Console.WriteLine("");
 
+            Console.WriteLine("Dictionary"); 
             var dictionary = new Dictionary();
             dictionary.DictionaryExample();
 
@@ -41,6 +45,7 @@ namespace Pluralsight.collectionInterfaces
                 "Sunday"
             };
             Console.WriteLine("before count = " + daysOfWeek.Count);
+            //Capacity — это длина буфера для массивов байтов, предоставляемых системой
             Console.WriteLine("before capacity = " + daysOfWeek.Capacity);
             daysOfWeek.Add("PartyDay");
             daysOfWeek.Add("PartyDay1");
@@ -62,7 +67,7 @@ namespace Pluralsight.collectionInterfaces
 
             //cant add in copy - read-only
             var copy = daysOfWeek.AsReadOnly();
-
+         
             //with collection (is read-only)
             string[] daysOfWeek_2 =
             {
@@ -87,11 +92,13 @@ namespace Pluralsight.collectionInterfaces
             };
 
             items.CollectionChanged += OnCollectionChanged;
+
+            items.Add("new item");
         }
 
         static void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            
+            Console.WriteLine("Collection was changed");
         }
     }
 }

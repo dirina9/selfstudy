@@ -6,7 +6,7 @@ namespace Pluralsight.arrays
     {
         public void PeopleArrayExample()
         {
-            Person[] people = new Person[]
+            Person[] people = 
             {
                 new Person{Name = "Bill", Age = 7},
                 new Person{Name = "Ben", Age = 8}

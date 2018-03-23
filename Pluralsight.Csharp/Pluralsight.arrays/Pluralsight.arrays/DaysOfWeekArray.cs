@@ -8,7 +8,6 @@ namespace Pluralsight.arrays
     {
         public void StartDaysOfWeekArrayExample()
         {
-            String monday = "Monday";
             String[] daysOfWeek =
             {
                 "Monday",
@@ -19,28 +18,34 @@ namespace Pluralsight.arrays
                 "Saturday",
                 "Sunday"
             };
-
             daysOfWeek[5] = "PartyDay";
             Array.Reverse(daysOfWeek);
-            var reversed = daysOfWeek.Reverse();
+            var reverse2Times = daysOfWeek.Reverse();
 
-            foreach (string day in reversed)
+            Console.WriteLine("Reverse array two times:");
+            foreach (string day in reverse2Times)
             {
                 Console.WriteLine(day);
             }
+            Console.WriteLine("");
+
+            Console.WriteLine("Make days plural (+s):");
             MakeDaysPlural(daysOfWeek);
             WriteLineArray(daysOfWeek);
 
+            Console.WriteLine("After sorting elements by using the default comparer:");
             Array.Sort(daysOfWeek);
             WriteLineArray(daysOfWeek);
 
-            Console.WriteLine("");
+            Console.WriteLine("After sorting elements by using the String Length Comparer:");
             var comparer = new StringLengthComparer();
             Array.Sort(daysOfWeek,comparer);
             WriteLineArray(daysOfWeek);
 
+            Console.WriteLine("After finding index of element with W:");
             int indexOfW = Array.FindIndex(daysOfWeek, x => x[0] == 'W');
             Console.WriteLine(indexOfW);
+            Console.WriteLine("Element:");
             Console.WriteLine(daysOfWeek[indexOfW]);
             Console.WriteLine("");
 
@@ -55,8 +60,10 @@ namespace Pluralsight.arrays
                 "Tuesday",
                 "Wednesday"
             };
-            int indexOfSun = Array.BinarySearch(sortedDays, "Sunday");
-            Console.WriteLine("Index is " + indexOfSun);
+            Console.WriteLine("Sorted days list:");
+            WriteLineArray(sortedDays);
+            int indexOfSunday = Array.BinarySearch(sortedDays, "Sunday");
+            Console.WriteLine("Index of Sunday is " + indexOfSunday);
         }
 
         class StringLengthComparer : IComparer<string>

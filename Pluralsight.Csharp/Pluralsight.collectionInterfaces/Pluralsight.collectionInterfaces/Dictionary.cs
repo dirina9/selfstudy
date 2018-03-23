@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Runtime.InteropServices;
 
 namespace Pluralsight.collectionInterfaces
 {
@@ -15,6 +14,7 @@ namespace Pluralsight.collectionInterfaces
                 {"MT", new PrimeMinister("Margaret Thetcher", 1979)}
             };
 
+            Console.WriteLine("Prime minister with [mt]");
             Console.WriteLine(primeMinisters["mt"]);
 
             foreach (var pm in primeMinisters.Values)

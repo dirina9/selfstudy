@@ -7,14 +7,13 @@ namespace Pluralsight.arrays
         public void ArrayCopyExample()
         {
             int[] squares = {1, 4, 9, 16};
-
+            Console.WriteLine("Исходное значение:");
+            Console.WriteLine(string.Join(" ", squares));
             int[] copy = new int[8];
-            squares.CopyTo(copy, 2);
 
-            foreach (int value in copy)
-            {
-                Console.WriteLine(value);
-            }
+            Console.WriteLine("Копируем со 2 индекса в массиве назначения:");
+            squares.CopyTo(copy, 2);
+            Console.WriteLine(string.Join(" ", copy));
             Console.WriteLine("squares == copy? {0}", squares == copy);
         }
     }
