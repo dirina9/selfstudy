@@ -62,6 +62,9 @@ namespace Pluralsight.arrays
             };
             Console.WriteLine("Sorted days list:");
             WriteLineArray(sortedDays);
+
+
+            //TODO: binarySearch
             int indexOfSunday = Array.BinarySearch(sortedDays, "Sunday");
             Console.WriteLine("Index of Sunday is " + indexOfSunday);
         }
