@@ -36,23 +36,13 @@ namespace Stack_Undo
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_Click(object sender, EventArgs e)
         {
-            AddUndoAction(new UndoAction(button1));
-            button1.BackColor = GetRandomColor();
+            var button = (Button) sender;
+            AddUndoAction(new UndoAction(button));
+            button.BackColor = GetRandomColor();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AddUndoAction(new UndoAction(button2));
-            button2.BackColor = GetRandomColor();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            AddUndoAction(new UndoAction(button3));
-            button3.BackColor = GetRandomColor();
-        }
 
         private void AddUndoAction(UndoAction undoAction)
         {
