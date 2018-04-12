@@ -5,23 +5,24 @@ namespace Stack_Undo
 {
     public class UndoAction
     {
-        public UndoAction(Button button)
+        //constructor
+        public UndoAction(Button currentButton)
         {
-            oldButton = button;
-            oldBrush = oldButton.BackColor.CloneCurrentValue;
+            previousButtonColor = currentButton.BackColor;
+            previousButton = currentButton;
         }
 
-        public void Execute()
+        public void UndoColor()
         {
-            oldButton.BackColor = oldBrush;
+            previousButton.BackColor = previousButtonColor;
         }
 
         public override string ToString()
         {
-            return string.Format("{0}: {1}", oldButton.Content, oldBrush.ToString());
+            return string.Format("{0}: {1}", previousButton.Name, previousButtonColor);
         }
 
-        private Button oldButton;
-        private Color oldBrush;
+        public Button previousButton;
+        public Color previousButtonColor;
     }
 }
