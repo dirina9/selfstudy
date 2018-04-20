@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Stack_Postfix
@@ -27,7 +26,6 @@ namespace Stack_Postfix
                     {
                         //...push it to the stack
                         case "+":
-                            
                             IfFirstOrSecondPriorityOperandIsInStack(operands, postfix);
                             operands.Push(value.ToString("+"));
                             break;
