@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Stack_Postfix
 {
-    public class Infix
+    public class InfixNotUsed
     {
         public string[] TranslateToPostfix(string[] args)
         {

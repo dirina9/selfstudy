@@ -2,22 +2,27 @@
 
 namespace Stack_Postfix
 {
-    class Operands
+    public class Operand
     {
-        private string operand;
-        private int priority;
+        private readonly string value;
+        private readonly int priority;
 
         public int Priority
         {
-            get { return IdentifyPriority(operand); }
+            get { return priority; }
         }
 
-        public string Operand
+        public string Value
         {
-            get { return operand; }
-            set { operand = value; }
+            get { return value; }
         }
 
+        public Operand(string val)
+        {
+            value = val;
+            priority = IdentifyPriority(value);
+        }
+        
         private int IdentifyPriority(string op){
             switch (op)
             {
@@ -34,7 +39,7 @@ namespace Stack_Postfix
                 case ")":
                     return 5;
                 default:
-                    throw new ArgumentException(string.Format("Unrecognized operand: {0}", operand));
+                    throw new ArgumentException(string.Format("Unrecognized operand: {0}", op));
             }
         }
     }
