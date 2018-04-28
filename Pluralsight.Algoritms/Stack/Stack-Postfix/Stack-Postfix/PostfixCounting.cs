@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Stack_Postfix
 {
-    public class PostfixCounting
+    public static class PostfixCounting
     {
-        public void PostfixCount(string[] args)
+        public static int PostfixCount(string[] args)
         {
             //The stack of integers not yet operated on
             Stack<int> values = new Stack<int>();
@@ -28,6 +28,9 @@ namespace Stack_Postfix
                     //...and pop the result back to the stack
                     switch (token)
                     {
+                        case "^":
+                            values.Push(lhs ^ rhs);
+                            break;
                         case "+":
                             values.Push(lhs + rhs);
                             break;
@@ -45,8 +48,10 @@ namespace Stack_Postfix
                     }
                 }
             }
+            int result = values.Peek();
             //the last item on the stack is the result
-            Console.WriteLine(values.Pop());
+            Console.WriteLine(result);
+            return result;
         }
     }
 }

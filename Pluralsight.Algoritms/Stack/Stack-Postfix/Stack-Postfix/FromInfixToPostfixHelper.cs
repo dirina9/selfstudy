@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 namespace Stack_Postfix
 {
-    public class FromInfixToPostfixHelper
+    public static class FromInfixToPostfixHelper
     {
-        public string[] TranslateToPostfix(string[] args)
+        public static string[] TranslateToPostfix(string[] args)
         {
             Stack<Operand> operandsStack = new Stack<Operand>();
             List<string> postfix = new List<string>();
-            int value;
 
             foreach (string token in args)
             {
                 //if the value is an integer...
+                int value;
                 if (int.TryParse(token, out value))
                 {
                     postfix.Add(value.ToString());
@@ -48,7 +48,7 @@ namespace Stack_Postfix
             return postfix.ToArray();
         }
 
-        public void HandleBracket(Stack<Operand> operandsStack, List<string> postfix)
+        public static void HandleBracket(Stack<Operand> operandsStack, List<string> postfix)
         {
             while (operandsStack.Peek().Priority != 4)
             {
@@ -57,7 +57,7 @@ namespace Stack_Postfix
             operandsStack.Pop();  
         }
 
-        public void ReplaceElementsFromStackToString(Operand operand, Stack<Operand> operandsStack, List<string> postfix)
+        public static void ReplaceElementsFromStackToString(Operand operand, Stack<Operand> operandsStack, List<string> postfix)
         {
             while (operand.Priority >= operandsStack.Peek().Priority)
             {
@@ -69,7 +69,7 @@ namespace Stack_Postfix
             }
         }
 
-        public void MoveOperandToStack(Operand operand, Stack<Operand> operandsStack)
+        public static void MoveOperandToStack(Operand operand, Stack<Operand> operandsStack)
         {
             if (operand.Priority != 5)
             {
@@ -77,7 +77,7 @@ namespace Stack_Postfix
             }
         }
 
-        public void ReplaceAllStackElementsToString(Stack<Operand> operandsStack, List<string> postfix)
+        public static void ReplaceAllStackElementsToString(Stack<Operand> operandsStack, List<string> postfix)
         {
             while (operandsStack.Count != 0)
             {

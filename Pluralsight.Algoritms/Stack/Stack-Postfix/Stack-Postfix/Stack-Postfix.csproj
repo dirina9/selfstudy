@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Stack_Postfix</RootNamespace>
     <AssemblyName>Stack-Postfix</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FromInfixToPostfixHelper.cs" />
+    <Compile Include="InfixCountingService.cs" />
+    <Compile Include="InfixCountingServiceTests.cs" />
     <Compile Include="InfixNotUsed.cs" />
     <Compile Include="Operand.cs" />
     <Compile Include="PostfixCounting.cs" />

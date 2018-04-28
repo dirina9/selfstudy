@@ -9,8 +9,9 @@
             //new PostfixCounting().PostfixCount(postfix);
 
             //новый вариант перевода из инфиксной записи в постфиксную
-            string[] postfix = new FromInfixToPostfixHelper().TranslateToPostfix(args);
-            new PostfixCounting().PostfixCount(postfix);
+            InfixCountingService.InfixCounting(args);
         }
+
+
     }
 }

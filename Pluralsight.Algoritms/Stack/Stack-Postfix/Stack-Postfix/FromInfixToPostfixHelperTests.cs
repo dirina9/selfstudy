@@ -6,7 +6,6 @@ namespace Stack_Postfix
     [TestFixture]
     public class FromInfixToPostfixHelperTests
     {
-
         public Stack<Operand> InitStackWithOneOpenedBracketBeforeTest()
         {
             Stack<Operand> operandsStack = new Stack<Operand>();
@@ -46,11 +45,9 @@ namespace Stack_Postfix
             expectedPostfix.Add("2");
             expectedPostfix.Add("+");
             expectedPostfix.Add("*");
-
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
-            
+          
             // Act
-            helper.HandleBracket(operandsStack, postfix);
+            FromInfixToPostfixHelper.HandleBracket(operandsStack, postfix);
 
             // Assert
             CollectionAssert.AreEqual(postfix, expectedPostfix);
@@ -68,10 +65,9 @@ namespace Stack_Postfix
             expectedPostfix.Add("2");
             expectedPostfix.Add("-");
             expectedPostfix.Add("*");
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
-
+            
             // Act
-            helper.HandleBracket(operandsStack, postfix);
+            FromInfixToPostfixHelper.HandleBracket(operandsStack, postfix);
 
             // Assert
             CollectionAssert.AreNotEqual(postfix, expectedPostfix);
@@ -89,10 +85,9 @@ namespace Stack_Postfix
             expectedPostfix.Add("2");
             expectedPostfix.Add("/");
             expectedPostfix.Add("*");
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
-
+            
             // Act
-            helper.ReplaceElementsFromStackToString(new Operand("*"), operandsStack, postfix);
+            FromInfixToPostfixHelper.ReplaceElementsFromStackToString(new Operand("*"), operandsStack, postfix);
 
             // Assert
             CollectionAssert.AreEqual(postfix, expectedPostfix);
@@ -111,10 +106,9 @@ namespace Stack_Postfix
             expectedPostfix.Add("/");
             expectedPostfix.Add("*");
             expectedPostfix.Add("-");
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
-
+            
             // Act
-            helper.ReplaceElementsFromStackToString(new Operand("+"), operandsStack, postfix);
+            FromInfixToPostfixHelper.ReplaceElementsFromStackToString(new Operand("+"), operandsStack, postfix);
 
             // Assert
             CollectionAssert.AreEqual(postfix, expectedPostfix);
@@ -133,10 +127,9 @@ namespace Stack_Postfix
             expectedPostfix.Add("/");
             expectedPostfix.Add("*");
             expectedPostfix.Add("-");
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
-
+            
             // Act
-            helper.ReplaceElementsFromStackToString(new Operand("("), operandsStack, postfix);
+            FromInfixToPostfixHelper.ReplaceElementsFromStackToString(new Operand("("), operandsStack, postfix);
 
             // Assert
             CollectionAssert.AreEqual(postfix, expectedPostfix);
@@ -150,10 +143,9 @@ namespace Stack_Postfix
             Stack<Operand> operandsStack = InitStackWithoutBracketsBeforeTest();
             List<string> postfix = InitOriginalPostfix();
             List<string> expectedPostfix = InitOriginalPostfix();
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
-
+            
             // Act
-            helper.ReplaceElementsFromStackToString(new Operand("^"), operandsStack, postfix);
+            FromInfixToPostfixHelper.ReplaceElementsFromStackToString(new Operand("^"), operandsStack, postfix);
 
             // Assert
             CollectionAssert.AreEqual(postfix, expectedPostfix);
@@ -168,10 +160,9 @@ namespace Stack_Postfix
             Stack<Operand> expectedOperandsStack = InitStackWithoutBracketsBeforeTest();
             Operand operand = new Operand("-");
             expectedOperandsStack.Push(operand);
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
-
+            
             // Act
-            helper.MoveOperandToStack(operand, operandsStack);
+            FromInfixToPostfixHelper.MoveOperandToStack(operand, operandsStack);
 
             // Assert
             operandsStack.Equals(expectedOperandsStack);
@@ -186,10 +177,9 @@ namespace Stack_Postfix
             Stack<Operand> operandsStack = InitStackWithoutBracketsBeforeTest();
             Stack<Operand> expectedOperandsStack = InitStackWithoutBracketsBeforeTest();
             Operand operand = new Operand(")");
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
-
+            
             // Act
-            helper.MoveOperandToStack(operand, operandsStack);
+            FromInfixToPostfixHelper.MoveOperandToStack(operand, operandsStack);
 
             // Assert
             operandsStack.Equals(expectedOperandsStack);
@@ -209,10 +199,9 @@ namespace Stack_Postfix
             expectedPostfix.Add("/");
             expectedPostfix.Add("*");
             expectedPostfix.Add("-");
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
-
+            
             // Act
-            helper.ReplaceAllStackElementsToString(operandsStack, postfix);
+            FromInfixToPostfixHelper.ReplaceAllStackElementsToString(operandsStack, postfix);
 
             // Assert
             CollectionAssert.AreEqual(postfix, expectedPostfix);
@@ -228,10 +217,9 @@ namespace Stack_Postfix
             List<string> expectedPostfix = new List<string>();
             expectedPostfix.Add("5");
             expectedPostfix.Add("2");
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
-
+            
             // Act
-            helper.ReplaceAllStackElementsToString(operandsStack, postfix);
+            FromInfixToPostfixHelper.ReplaceAllStackElementsToString(operandsStack, postfix);
 
             // Assert
             CollectionAssert.AreEqual(postfix, expectedPostfix);
@@ -242,14 +230,13 @@ namespace Stack_Postfix
         public void TranslateToPostfix_WithInfix_ShouldReturnPostfix()
         {
             // Arrange
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
             string[] expectedPostfix = new string[3];
             expectedPostfix[0] = "5";
             expectedPostfix[1] = "2";
             expectedPostfix[2] = "+";
 
             // Act
-            string[] resultPostfix = helper.TranslateToPostfix(new []{"5","+","2"});
+            string[] resultPostfix = FromInfixToPostfixHelper.TranslateToPostfix(new[] { "5", "+", "2" });
 
             // Assert
             CollectionAssert.AreEqual(resultPostfix, expectedPostfix);
@@ -260,7 +247,6 @@ namespace Stack_Postfix
         public void TranslateToPostfix_WithInfixWithBrackets_ShouldReturnPostfix()
         {
             // Arrange
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
             string[] expectedPostfix = new string[5];
             expectedPostfix[0] = "5";
             expectedPostfix[1] = "2";
@@ -269,7 +255,7 @@ namespace Stack_Postfix
             expectedPostfix[4] = "*";
 
             // Act
-            string[] resultPostfix = helper.TranslateToPostfix(new[] { "(", "5", "+", "2", ")", "*", "2" });
+            string[] resultPostfix = FromInfixToPostfixHelper.TranslateToPostfix(new[] { "(", "5", "+", "2", ")", "*", "2" });
 
             // Assert
             CollectionAssert.AreEqual(resultPostfix, expectedPostfix);
@@ -281,7 +267,6 @@ namespace Stack_Postfix
         public void TranslateToPostfix_WithInfixWithBrackets_ShouldReturnCorrectedPostfix()
         {
             // Arrange
-            FromInfixToPostfixHelper helper = new FromInfixToPostfixHelper();
             string[] expectedPostfix = new string[5];
             expectedPostfix[0] = "5";
             expectedPostfix[1] = "2";
@@ -290,7 +275,7 @@ namespace Stack_Postfix
             expectedPostfix[4] = "*";
 
             // Act
-            string[] resultPostfix = helper.TranslateToPostfix(new[] { "(", "5", "+", "2", ")", "*", "2" });
+            string[] resultPostfix = FromInfixToPostfixHelper.TranslateToPostfix(new[] { "(", "5", "+", "2", ")", "*", "2" });
 
             // Assert
             CollectionAssert.AreNotEqual(resultPostfix, expectedPostfix);
