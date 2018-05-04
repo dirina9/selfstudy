@@ -11,6 +11,12 @@ namespace Stack_Postfix
             // Arrange
             var expectedResult = 27;
 
+            // args = "5 + 2 * 3"
+            // res = 11
+
+            // args = "5+ (8- 2)  7ty /3"
+            // res = 7
+
             // Act
             int result = InfixCountingService.InfixCounting(new[] { "(", "5", "*", "3", ")", "+", "2", "*", "6"});
 
