@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace Queue_example
@@ -25,11 +24,6 @@ namespace Queue_example
             UpdateGrid();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (queue.Count > 0)
@@ -40,36 +34,29 @@ namespace Queue_example
         }
 
         public void UpdateGrid()
-        {
-            listBox2.Items.Clear(); 
-            listBox3.Items.Clear(); 
-            listBox4.Items.Clear(); 
-            listBox5.Items.Clear(); 
-            listBox6.Items.Clear(); 
-            listBox7.Items.Clear();
-
+        {    
             int index = 0;
             foreach (int message in queue)
             {
                 switch (index)
                 {
                     case 0:
-                        listBox2.Items.Add(message.ToString());
+                        UpdateListBox(listBox2, message);
                         break;
                     case 1:
-                        listBox3.Items.Add(message.ToString());
+                        UpdateListBox(listBox3, message);
                         break;
                     case 2:
-                        listBox4.Items.Add(message.ToString());
+                        UpdateListBox(listBox4, message);
                         break;
                     case 3:
-                        listBox5.Items.Add(message.ToString());
+                        UpdateListBox(listBox5, message);
                         break;
                     case 4:
-                        listBox6.Items.Add(message.ToString());
+                        UpdateListBox(listBox6, message);
                         break;
                     case 5:
-                        listBox7.Items.Add(message.ToString());
+                        UpdateListBox(listBox7, message);
                         break;
                 }
                 index++;
@@ -81,34 +68,16 @@ namespace Queue_example
             }
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void UpdateListBox(ListBox listBox, int message)
         {
-
+            listBox.Items.Clear();
+            listBox.Items.Add(message.ToString());
         }
 
-        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
+        public List<ListBox> CreateListOfListBoxes()
         {
-
-        }
-
-        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox7_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            List<ListBox> listBoxes = new List<ListBox>();
+            listBoxes.Add(listBox2); 
         }
     }
 }

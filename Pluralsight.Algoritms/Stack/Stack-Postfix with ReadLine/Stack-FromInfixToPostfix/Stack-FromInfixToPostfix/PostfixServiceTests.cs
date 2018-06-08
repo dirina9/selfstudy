@@ -1,12 +1,13 @@
 ﻿using NUnit.Framework;
 
-namespace Stack_Postfix
+namespace Stack_FromInfixToPostfix
 {
-    public class InfixCountingServiceTests
+    [TestFixture]
+    public class PostfixServiceTests
     {
         [Test]
         //До тех пор, пока верхним элементом стека не станет открывающая скобка, выталкиваем элементы из стека в выходную строку
-        public void InfixCounting_WithInfix_ShouldReturnTrueResult()
+        public void PostfixCount_WithInfix_ShouldReturnTrueResult()
         {
             // Arrange
             var expectedResult = 27;
@@ -16,11 +17,9 @@ namespace Stack_Postfix
 
             // args = "5+ (8- 2)  ty /3"
             // res = 7
-            //5 8 2 - 3 / +
-            //5 + 8 2 - 3 /
 
             // Act
-            int result = InfixCountingService.InfixCounting(new[] { "(", "5", "*", "3", ")", "+", "2", "*", "6"});
+            int result = PostfixService.PostfixCount(new[] { "5", "3", "*", "2", "6", "*", "+" });
 
             // Assert
             Assert.AreEqual(expectedResult, result);
@@ -28,13 +27,13 @@ namespace Stack_Postfix
 
         [Test]
         //До тех пор, пока верхним элементом стека не станет открывающая скобка, выталкиваем элементы из стека в выходную строку
-        public void InfixCounting_WithSecondPriority_ShouldReturnTrueResult()
+        public void PostfixCount_WithSecondPriority_ShouldReturnTrueResult()
         {
             // Arrange
-            var expectedResult = 7;
+            var expectedResult = 1;
 
             // Act
-            int result = InfixCountingService.InfixCounting(new[] { "5", "+", "(", "8", "-", "2", ")", "/", "3" });
+            int result = PostfixService.PostfixCount(new[] { "5", "2", "*", "10", "/" });
 
             // Assert
             Assert.AreEqual(expectedResult, result);
@@ -42,13 +41,13 @@ namespace Stack_Postfix
 
         [Test]
         //До тех пор, пока верхним элементом стека не станет открывающая скобка, выталкиваем элементы из стека в выходную строку
-        public void InfixCounting_WithThirdPriority_ShouldReturnTrueResult()
+        public void PostfixCount_WithThirdPriority_ShouldReturnTrueResult()
         {
             // Arrange
             var expectedResult = 3;
 
             // Act
-            int result = InfixCountingService.InfixCounting(new[] { "5", "-", "2" });
+            int result = PostfixService.PostfixCount(new[] { "5", "2", "-" });
 
             // Assert
             Assert.AreEqual(expectedResult, result);
@@ -56,13 +55,13 @@ namespace Stack_Postfix
 
         [Test]
         //До тех пор, пока верхним элементом стека не станет открывающая скобка, выталкиваем элементы из стека в выходную строку
-        public void InfixCounting_WithInfixWithBrackets_ShouldReturnTrueResult()
+        public void PostfixCount_WithInfixWithBrackets_ShouldReturnTrueResult()
         {
             // Arrange
             var expectedResult = 14;
 
             // Act
-            int result = InfixCountingService.InfixCounting(new[] { "(", "5", "+", "2", ")", "*", "2" });
+            int result = PostfixService.PostfixCount(new[] { "5", "2", "+", "2", "*" });
 
             // Assert
             Assert.AreEqual(expectedResult, result);
